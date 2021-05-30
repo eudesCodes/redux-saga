@@ -1,7 +1,7 @@
 // action models
 type TOnePieceAction<T, P> = {
-    readonly types: T;
-    payload?: P;
+    readonly type: T;
+    payload: P;
 };
 
 // CombineReducer type
