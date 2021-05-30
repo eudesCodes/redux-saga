@@ -1,5 +1,8 @@
 {
     "fr": {
-        "_started": "Get Started"
+        "translations": { 
+            "send.request": "Test Redux-Saga!!"
+        }
+        
     }
 }

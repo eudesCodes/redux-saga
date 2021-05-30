@@ -7,5 +7,9 @@ import { ApiEnums } from 'src/enums/api';
  * @returns { Promise<AxiosResponse<any>> }
  */
 export const fetchData = (): Promise<AxiosResponse<any>> => {
-    return getAxiosInstance().get(ApiEnums.FETCH_REQUEST);
+    return getAxiosInstance().get(ApiEnums.FETCH_REQUEST, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+    });
 };

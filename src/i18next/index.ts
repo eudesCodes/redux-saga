@@ -1,17 +1,30 @@
 import i18next from 'i18next';
-import { fr } from '_locale.json';
+// import * as resource from '_locale.json';
+import { initReactI18next } from 'react-i18next';
 
-i18next.init({
-    interpolation: {
-        // React already does escaping
-        escapeValue: false,
-    },
-    lng: 'fr',
-    resources: {
-        fr: {
-            translation: fr,
+export const initTranslations = (Lng: string): any => {
+    return i18next.use(initReactI18next).init({
+        debug: false,
+        defaultNS: 'translations',
+
+        fallbackLng: Lng,
+        interpolation: {
+            escapeValue: false, //  not needed for react!!
+            formatSeparator: ',',
         },
-    },
-});
-
-export default i18next;
+        keySeparator: false, //  we use content as keys
+        //  have a common namespace used around the full app
+        ns: ['translations'],
+        react: {
+            wait: true,
+        },
+        //  we init with resources
+        resources: {
+            fr: {
+                translations: {
+                    'send.request': 'Test Redux-Saga!!',
+                },
+            },
+        },
+    });
+};
