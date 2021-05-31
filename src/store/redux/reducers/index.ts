@@ -22,12 +22,12 @@ export const ReducerFetch = (state: any = {}, action: TOnePieceAction<string, TP
         case FAILLURE:
             return {
                 loading: false,
-                error: action.payload.error,
+                error: action?.payload?.error,
             };
         case FETCH_DATA:
             return {
                 loading: false,
-                data: action.payload.data,
+                data: action?.payload?.data,
             };
         default:
             return state;
